@@ -24,26 +24,28 @@ export default function App() {
     setInputed(valued);
   }
   return (
-    <div
-      className={`${
-        theme ? "bg-very_dark_blue_main" : "bg-light_gray"
-      } h-full md:h-screen w-screen md:flex md:items-center md:justify-center`}
-    >
+    <div className=" h-screen w-screen">
       <div
-        className={`flex flex-col h-full p-8 ${
+        className={`${
           theme ? "bg-very_dark_blue_main" : "bg-light_gray"
-        }`}
+        } md:h-full w-screen md:flex   md:justify-center md:items-center`}
       >
-        <Nav theme={theme} switcher={setTheme} />
-        <div className="flex flex-col ">
-          <Display display={inputed} theme={theme} />
-          <Buttons
-            onClick={ButtonClick}
-            equal={Evaluate}
-            onReset={Reset}
-            onDelete={Del}
-            theme={theme}
-          />
+        <div
+          className={`flex flex-col h-full md:items-center  p-8  ${
+            theme ? "bg-very_dark_blue_main" : "bg-light_gray"
+          }`}
+        >
+          <Nav theme={theme} switcher={setTheme} />
+          <div className="flex flex-col ">
+            <Display display={inputed} theme={theme} />
+            <Buttons
+              onClick={ButtonClick}
+              equal={Evaluate}
+              onReset={Reset}
+              onDelete={Del}
+              theme={theme}
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -52,7 +54,7 @@ export default function App() {
 
 function Nav({ theme, switcher }) {
   return (
-    <div className="w-full flex justify-between mb-10">
+    <div className="w-full flex justify-between mb-10 relative">
       <div
         className={`font-sans font-bold text-4xl ${
           theme ? "text-white" : "text-very_dark_grayish_yellow"
@@ -121,7 +123,7 @@ function Buttons({ onClick, equal, onReset, onDelete, theme }) {
     <div
       className={`flex flex-col  ${
         theme ? "bg-very_dark_bg_blue" : "bg-grayish_red"
-      } mt-10 rounded-xl`}
+      } mt-10 rounded-xl `}
     >
       <div className="grid grid-cols-4 gap-4 p-8 ">
         <Button onClick={onClick}>7</Button>
@@ -150,7 +152,7 @@ function Buttons({ onClick, equal, onReset, onDelete, theme }) {
         <Button onClick={onClick}>/</Button>
         <Button onClick={onClick}>X</Button>
       </div>
-      <div className="flex justify-between w-full space-x-4 px-8 py-1 mb-5">
+      <div className="flex justify-between w-full space-x-4 px-8 py-1  mb-5">
         <button
           className={`w-1/2 ${
             theme
