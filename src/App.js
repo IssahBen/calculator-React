@@ -9,6 +9,7 @@ export default function App() {
 
   function Evaluate() {
     try {
+      // eslint-disable-next-line no-eval
       let valued = eval(inputed);
       setInputed(valued);
     } catch (error) {
